@@ -1,0 +1,221 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<DomainModel xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="2.0.0.0" name="EntitiesModel" namespace="DataAccessModel" showPropertiesCompartment="true" xmlns="http://www.telerik.com/ORM">
+  <orm:orm name="EntitiesModel" backend="mssql" default-schema="dbo" xmlns:orm="http://tempuri.org/ORM">
+    <orm:namespace name="DataAccessModel" default="true">
+      <orm:class name="Transaction" uniqueId="42515f69-607d-4a6b-b32a-47372d8a9e5d">
+        <orm:table name="Transactions" />
+        <orm:identity>
+          <orm:single-field field-name="_idTransaction" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_idTransaction" property="IdTransaction" behavior="readwrite" uniqueId="b8295ed2-b68a-4a8b-be56-8d4ad85b59e0" type="System.Int32">
+          <orm:column name="idTransaction" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_idCustomer" property="IdCustomer" behavior="readwrite" uniqueId="d3522806-f53f-4560-aeea-7a55eea602d1" type="System.Int32">
+          <orm:column name="idCustomer" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_idProduct" property="IdProduct" behavior="readwrite" uniqueId="1b50b644-046f-411f-a1e7-52957bde166c" type="System.Int32">
+          <orm:column name="idProduct" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_amount" property="Amount" behavior="readwrite" uniqueId="f2ddcfcc-4247-4ed9-a6c8-5ad53ac5c089" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="Amount" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_customerName" property="CustomerName" behavior="readwrite" uniqueId="3fc422a0-677f-408f-9d8e-861475f758d0" type="System.String">
+          <orm:column name="CustomerName" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_productName" property="ProductName" behavior="readwrite" uniqueId="bb394561-b32e-4c2d-b042-9792f17257b9" type="System.String">
+          <orm:column name="ProductName" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_customer" property="Customer" behavior="readwrite" uniqueId="f3e35ad4-c49e-4704-b530-871c46a810a0" type="DataAccessModel.Customer">
+          <orm:reference uniqueId="028c2ce9-cd04-4cb6-9f0d-f4a4b85206b2" association-name="TransactionHasCustomer">
+            <orm:sharedfield name="_idCustomer" target-class="DataAccessModel.Customer" target-field="_idCustomer" />
+            <orm:constraint name="FK_Transactions_Customers" delete-action="dbdefaultrule" destination-table="Customers" />
+          </orm:reference>
+        </orm:field>
+        <orm:field name="_product" property="Product" behavior="readwrite" uniqueId="cae9817f-dbb0-49e1-aae4-ca799be27fd4" type="DataAccessModel.Product">
+          <orm:reference uniqueId="a6957662-e234-496d-a0c3-93cf7666b812" association-name="TransactionHasProduct">
+            <orm:sharedfield name="_idProduct" target-class="DataAccessModel.Product" target-field="_idProducts" />
+            <orm:constraint name="FK_Transactions_Products" delete-action="dbdefaultrule" destination-table="Products" />
+          </orm:reference>
+        </orm:field>
+      </orm:class>
+      <orm:class name="Product" uniqueId="4129503a-ba39-40fe-aab1-f35dcf059f02">
+        <orm:table name="Products" />
+        <orm:identity>
+          <orm:single-field field-name="_idProducts" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_idProducts" property="IdProducts" behavior="readwrite" uniqueId="ff3dede2-2b63-4d69-a29d-18c03de978a3" type="System.Int32">
+          <orm:column name="idProducts" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_name" property="Name" behavior="readwrite" uniqueId="78536682-f2ed-4116-8733-71e4b70b052c" type="System.String">
+          <orm:column name="Name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_price" property="Price" behavior="readwrite" uniqueId="57220f12-536e-4370-a269-41ffc9c4e96d" type="System.Nullable`1[[System.Decimal, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089]]">
+          <orm:column name="Price" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        </orm:field>
+        <orm:field name="_text" property="Text" behavior="readwrite" uniqueId="c121b39d-4ad6-4056-840d-9e74457ba2fb" type="System.String">
+          <orm:column name="Text" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_transactions" property="Transactions" behavior="readwrite" uniqueId="15bb120b-e9f1-4848-bbed-25927699a8e5" type="DataAccessModel.Transaction">
+          <orm:collection element-class="DataAccessModel.Transaction" inverse-field="_product" order-by="" uniqueId="a6957662-e234-496d-a0c3-93cf7666b812" />
+        </orm:field>
+      </orm:class>
+      <orm:class name="Customer" uniqueId="d01def1e-a437-430d-8692-f687b22df32c">
+        <orm:table name="Customers" />
+        <orm:identity>
+          <orm:single-field field-name="_idCustomer" />
+        </orm:identity>
+        <orm:concurrency strategy="changed" />
+        <orm:field name="_idCustomer" property="IdCustomer" behavior="readwrite" uniqueId="e9ccad98-dc2f-43da-968d-5fc83e04de0b" type="System.Int32">
+          <orm:column name="idCustomer" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        </orm:field>
+        <orm:field name="_name" property="Name" behavior="readwrite" uniqueId="b47deb37-6ba9-41ce-88f0-8468cf9f73c0" type="System.String">
+          <orm:column name="Name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_location" property="Location" behavior="readwrite" uniqueId="4a8e004c-9563-4e99-8212-1d4d590504c5" type="System.String">
+          <orm:column name="Location" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        </orm:field>
+        <orm:field name="_transactions" property="Transactions" behavior="readwrite" uniqueId="d7d16ed0-3976-40fe-989c-785f45300c3d" type="DataAccessModel.Transaction">
+          <orm:collection element-class="DataAccessModel.Transaction" inverse-field="_customer" order-by="" uniqueId="028c2ce9-cd04-4cb6-9f0d-f4a4b85206b2" />
+        </orm:field>
+      </orm:class>
+    </orm:namespace>
+    <orm:schema schema="">
+      <orm:table name="Transactions">
+        <orm:column name="idTransaction" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="idCustomer" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="idProduct" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        <orm:column name="Amount" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        <orm:column name="CustomerName" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="ProductName" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:constraint name="FK_Transactions_Customers" delete-action="dbdefaultrule" destination-table="Customers">
+          <orm:column name="idCustomer" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+        <orm:constraint name="FK_Transactions_Products" delete-action="dbdefaultrule" destination-table="Products">
+          <orm:column name="idProduct" sql-type="int" nullable="false" length="0" scale="0" ado-type="Int32" />
+        </orm:constraint>
+      </orm:table>
+      <orm:table name="Products">
+        <orm:column name="idProducts" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="Name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="Price" sql-type="decimal" nullable="true" length="6" scale="2" ado-type="Decimal" />
+        <orm:column name="Text" sql-type="varchar" nullable="true" length="200" scale="0" ado-type="StringVariableLength" />
+      </orm:table>
+      <orm:table name="Customers">
+        <orm:column name="idCustomer" sql-type="int" nullable="false" length="0" scale="0" primary-key="true" ado-type="Int32" />
+        <orm:column name="Name" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+        <orm:column name="Location" sql-type="varchar" nullable="true" length="50" scale="0" ado-type="StringVariableLength" />
+      </orm:table>
+    </orm:schema>
+    <orm:relational-naming-settings>
+      <orm:source-strategy>Property</orm:source-strategy>
+      <orm:remove-camel-case>False</orm:remove-camel-case>
+    </orm:relational-naming-settings>
+  </orm:orm>
+  <ModelSettings xmlns="">
+    <AppConfigConnectionPropertyName>TestConnection</AppConfigConnectionPropertyName>
+    <AppConfigConnectionString>Data Source=CLASDESKTOP;Initial Catalog=Test;Integrated Security=True</AppConfigConnectionString>
+    <InitialCatalog>Test</InitialCatalog>
+    <NamingSettings>
+      <ClassRules>
+        <CaseMode>PascalCase</CaseMode>
+        <PluralizationMode>Singularize</PluralizationMode>
+      </ClassRules>
+      <FieldRules>
+        <AddPrefix>_</AddPrefix>
+        <CaseMode>CamelCase</CaseMode>
+      </FieldRules>
+      <PropertyRules>
+        <CaseMode>PascalCase</CaseMode>
+      </PropertyRules>
+      <NavigationPropertyRules />
+    </NamingSettings>
+    <CodeGenerationSettings>
+      <MappingDefinitionType>Xml</MappingDefinitionType>
+    </CodeGenerationSettings>
+    <SchemaUpdateSettings />
+    <BackendConfigurationSettings>
+      <BackendConfiguration>
+        <Backend>MsSql</Backend>
+        <ProviderName>System.Data.SqlClient</ProviderName>
+      </BackendConfiguration>
+    </BackendConfigurationSettings>
+  </ModelSettings>
+  <Types>
+    <DomainClass Id="42515f69-607d-4a6b-b32a-47372d8a9e5d" name="Transaction" namespace="DataAccessModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="b8295ed2-b68a-4a8b-be56-8d4ad85b59e0" name="IdTransaction" type="Int32" label="IdTransaction : Int32" kind="Persistent" identity="true" fieldName="_idTransaction" />
+      <Property Id="f2ddcfcc-4247-4ed9-a6c8-5ad53ac5c089" name="Amount" type="Decimal" label="Amount : Decimal" nullable="true" kind="Persistent" fieldName="_amount" />
+      <Property Id="3fc422a0-677f-408f-9d8e-861475f758d0" name="CustomerName" label="CustomerName : String" kind="Persistent" fieldName="_customerName" />
+      <Property Id="d3522806-f53f-4560-aeea-7a55eea602d1" name="IdCustomer" type="Int32" label="IdCustomer : Int32" kind="Persistent" fieldName="_idCustomer" />
+      <Property Id="1b50b644-046f-411f-a1e7-52957bde166c" name="IdProduct" type="Int32" label="IdProduct : Int32" kind="Persistent" fieldName="_idProduct" />
+      <Property Id="bb394561-b32e-4c2d-b042-9792f17257b9" name="ProductName" label="ProductName : String" kind="Persistent" fieldName="_productName" />
+      <AssociationTargets>
+        <Association Id="028c2ce9-cd04-4cb6-9f0d-f4a4b85206b2" SourceMultiplicity="One" name="TransactionHasCustomer">
+          <DomainClassMoniker name="/EntitiesModel/Customer" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="d2dda76b-cc47-4bae-bb96-76a91e5e96e7">
+              <NavigationalPropertyMoniker name="/EntitiesModel/Customer/Transactions" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="7aeff786-f18e-4d07-b132-e4ff047a1a90">
+              <NavigationalPropertyMoniker name="/EntitiesModel/Transaction/Customer" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+        <Association Id="a6957662-e234-496d-a0c3-93cf7666b812" SourceMultiplicity="One" name="TransactionHasProduct">
+          <DomainClassMoniker name="/EntitiesModel/Product" />
+          <targetNavigationalProperty>
+            <associationDefinesTargetProperty Id="21e742f6-4a6b-45a0-af35-729f81d5ff48">
+              <NavigationalPropertyMoniker name="/EntitiesModel/Product/Transactions" />
+            </associationDefinesTargetProperty>
+          </targetNavigationalProperty>
+          <sourceNavigationalProperty>
+            <associationDefinesSourceProperty Id="41ce6996-1522-4b2d-b610-87a5529e7bdf">
+              <NavigationalPropertyMoniker name="/EntitiesModel/Transaction/Product" />
+            </associationDefinesSourceProperty>
+          </sourceNavigationalProperty>
+        </Association>
+      </AssociationTargets>
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="0a4048bc-7668-4579-8656-472a59ef8a0b">
+          <NavigationalProperty Id="f3e35ad4-c49e-4704-b530-871c46a810a0" name="Customer" type="Customer" label="Customer : Customer" nullable="true" kind="Persistent" fieldName="_customer" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+        <classHasNavigationalProperties Id="c2f3d636-0a38-418c-a28c-9354ad929fdb">
+          <NavigationalProperty Id="cae9817f-dbb0-49e1-aae4-ca799be27fd4" name="Product" type="Product" label="Product : Product" nullable="true" kind="Persistent" fieldName="_product" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="4129503a-ba39-40fe-aab1-f35dcf059f02" name="Product" namespace="DataAccessModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="ff3dede2-2b63-4d69-a29d-18c03de978a3" name="IdProducts" type="Int32" label="IdProducts : Int32" kind="Persistent" identity="true" fieldName="_idProducts" />
+      <Property Id="78536682-f2ed-4116-8733-71e4b70b052c" name="Name" label="Name : String" kind="Persistent" fieldName="_name" />
+      <Property Id="57220f12-536e-4370-a269-41ffc9c4e96d" name="Price" type="Decimal" label="Price : Decimal" nullable="true" kind="Persistent" fieldName="_price" />
+      <Property Id="c121b39d-4ad6-4056-840d-9e74457ba2fb" name="Text" label="Text : String" kind="Persistent" fieldName="_text" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="b2f0aa9e-7d2e-40b6-ad7a-48a3cccd669a">
+          <NavigationalProperty Id="15bb120b-e9f1-4848-bbed-25927699a8e5" name="Transactions" type="IList&lt;Transaction&gt;" label="Transactions : IList&lt;Transaction&gt;" nullable="true" kind="Persistent" fieldName="_transactions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+    <DomainClass Id="d01def1e-a437-430d-8692-f687b22df32c" name="Customer" namespace="DataAccessModel" showPropertiesCompartment="true" concurrencyMode="Changed" showNavigationCompartment="true" showImplementationCompartment="true">
+      <Property Id="e9ccad98-dc2f-43da-968d-5fc83e04de0b" name="IdCustomer" type="Int32" label="IdCustomer : Int32" kind="Persistent" identity="true" fieldName="_idCustomer" />
+      <Property Id="4a8e004c-9563-4e99-8212-1d4d590504c5" name="Location" label="Location : String" kind="Persistent" fieldName="_location" />
+      <Property Id="b47deb37-6ba9-41ce-88f0-8468cf9f73c0" name="Name" label="Name : String" kind="Persistent" fieldName="_name" />
+      <navigationalProperties>
+        <classHasNavigationalProperties Id="10ab85cd-7661-4965-8f4e-9ae5ee99fa92">
+          <NavigationalProperty Id="d7d16ed0-3976-40fe-989c-785f45300c3d" name="Transactions" type="IList&lt;Transaction&gt;" label="Transactions : IList&lt;Transaction&gt;" nullable="true" kind="Persistent" fieldName="_transactions" isDependent="false" isManaged="false" />
+        </classHasNavigationalProperties>
+      </navigationalProperties>
+    </DomainClass>
+  </Types>
+  <domainContext>
+    <domainModelHasDomainContext Id="2b9f4b2b-601b-4184-80b5-55a75768ea06">
+      <domainContainer name="EntitiesModel" namespace="DataAccessModel" showPropertiesCompartment="true">
+        <entitySetProperty name="Transactions" namespace="DataAccessModel" type="Transaction" label="Transactions : IQueryable&lt;DataAccessModel.Transaction&gt;" />
+        <entitySetProperty name="Products" namespace="DataAccessModel" type="Product" label="Products : IQueryable&lt;DataAccessModel.Product&gt;" />
+        <entitySetProperty name="Customers" namespace="DataAccessModel" type="Customer" label="Customers : IQueryable&lt;DataAccessModel.Customer&gt;" />
+      </domainContainer>
+    </domainModelHasDomainContext>
+  </domainContext>
+</DomainModel>

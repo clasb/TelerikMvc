@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<EntityDiagrams>
+  <entityDiagramsDiagram dslVersion="2.0.0.0" absoluteBounds="0, 0, 11, 8.5" name="EntitiesModel" fillColor="62, 62, 65" isDefault="true">
+    <DomainModelMoniker name="/EntitiesModel" />
+    <nestedChildShapes>
+      <classShape Id="825540f9-dcb9-40c8-bddc-aa7f96324d53" absoluteBounds="0.75, 2.25, 1.5, 2.9165804036458325">
+        <DomainClassMoniker name="/EntitiesModel/Transaction" />
+        <nestedChildShapes>
+          <elementListCompartment Id="6e6fa3b9-4221-4b51-a159-7a856871f671" absoluteBounds="0.765, 2.76, 1.4700000000000002, 1.4031982421875" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="d1777007-e2c8-41df-bc14-6b9b955cd691" absoluteBounds="0.765, 4.1731982421875, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="3c29632b-5023-420b-82b8-e0511b665beb" absoluteBounds="0.765, 4.4325878906249994, 1.4700000000000002, 0.63399251302083348" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="55dd2a63-be3f-44a1-9a88-f8766a58b355" absoluteBounds="3, 4, 1.5, 2.3396761067708329">
+        <DomainClassMoniker name="/EntitiesModel/Product" />
+        <nestedChildShapes>
+          <elementListCompartment Id="fc40af25-af97-4aac-a611-15e772f9b827" absoluteBounds="3.015, 4.51, 1.4700000000000002, 1.0185953776041665" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="ef70bdf8-3d1b-4e61-804f-f66a94df4d44" absoluteBounds="3.015, 5.5385953776041665, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="b0ad323c-7280-4dca-8621-e6ff6c2337c3" absoluteBounds="3.015, 5.7979850260416663, 1.4700000000000002, 0.44169108072916674" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <classShape Id="348fc6d8-b297-44e7-88eb-9efc590773c7" absoluteBounds="3, 1.125, 1.5, 2.1473746744791669">
+        <DomainClassMoniker name="/EntitiesModel/Customer" />
+        <nestedChildShapes>
+          <elementListCompartment Id="4ce807fa-8810-4ace-95a1-26e45e11838c" absoluteBounds="3.015, 1.635, 1.4700000000000002, 0.8262939453125" name="AttributesCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="b8617a00-347d-4321-9722-cc862471a329" absoluteBounds="3.015, 2.4712939453125, 1.4700000000000002, 0.2493896484375" name="ImplementationsCompartment" titleTextColor="Black" itemTextColor="Black" />
+          <elementListCompartment Id="86ee37ec-660e-4882-82a9-b77ca52ec3da" absoluteBounds="3.015, 2.7306835937500002, 1.4700000000000002, 0.44169108072916674" name="NavigationCompartment" titleTextColor="Black" itemTextColor="Black" />
+        </nestedChildShapes>
+      </classShape>
+      <associationConnector edgePoints="[(2.25 : 2.76118733723958); (3 : 2.76118733723958)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+        <AssociationMoniker Id="028c2ce9-cd04-4cb6-9f0d-f4a4b85206b2" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="825540f9-dcb9-40c8-bddc-aa7f96324d53" />
+          <classShapeMoniker Id="348fc6d8-b297-44e7-88eb-9efc590773c7" />
+        </nodes>
+      </associationConnector>
+      <associationConnector edgePoints="[(2.25 : 4.58329020182292); (3 : 4.58329020182292)]" fixedFrom="Algorithm" fixedTo="Algorithm">
+        <AssociationMoniker Id="a6957662-e234-496d-a0c3-93cf7666b812" />
+        <relativeChildShapes />
+        <nodes>
+          <classShapeMoniker Id="825540f9-dcb9-40c8-bddc-aa7f96324d53" />
+          <classShapeMoniker Id="55dd2a63-be3f-44a1-9a88-f8766a58b355" />
+        </nodes>
+      </associationConnector>
+    </nestedChildShapes>
+  </entityDiagramsDiagram>
+</EntityDiagrams>

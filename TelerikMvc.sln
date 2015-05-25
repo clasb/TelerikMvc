@@ -1,0 +1,36 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikMvc", "TelerikMvc\TelerikMvc.csproj", "{730369E3-B18C-4003-A273-BEC7152DACCE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TelerikMvcTests", "TelerikMvcTests\TelerikMvcTests.csproj", "{912E4F0D-6FA4-4920-B945-D1975257B438}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessModel", "DataAccessModel\DataAccessModel.csproj", "{C50145E6-A244-4F1F-B41F-90D1925B4A00}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{730369E3-B18C-4003-A273-BEC7152DACCE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{730369E3-B18C-4003-A273-BEC7152DACCE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{730369E3-B18C-4003-A273-BEC7152DACCE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{730369E3-B18C-4003-A273-BEC7152DACCE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Release|Any CPU.Build.0 = Release|Any CPU
+		{912E4F0D-6FA4-4920-B945-D1975257B438}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C50145E6-A244-4F1F-B41F-90D1925B4A00}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

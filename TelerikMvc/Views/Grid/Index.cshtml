@@ -1,0 +1,62 @@
+﻿@model IEnumerable<DataAccessModel.Customer>
+
+@{
+    ViewBag.Title = "Grid Page";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width"/>
+    <title>Index</title>
+</head>
+<body>
+<div id="clientsDb">
+    @(Html.Kendo().Grid<DataAccessModel.Customer>()
+          .Name("grid")
+          .DataSource(dataSource => dataSource
+          .Ajax()
+          .Read(read => read.Action("Customers_Read", "Grid")))
+          .Columns(columns =>
+          {
+              columns.Bound(customer => customer.IdCustomer);
+              columns.Bound(customer => customer.Name);
+              columns.Bound(customer => customer.Location);
+          })
+          .Pageable()
+          .Sortable()
+          .Filterable()
+          .Groupable()
+    )
+    @*@(Html.Kendo().Grid((IEnumerable<DataAccessModel.Customer>)ViewBag.Customers) //Bind the grid to ViewBag.Products
+          .Name("grid")
+          .Columns(columns =>
+          {
+              columns.Bound(customer => customer.IdCustomer);
+              columns.Bound(customer => customer.Name);
+              columns.Bound(customer => customer.Location);
+          })
+          .Pageable() // Enable paging
+          .Sortable() // Enable sorting
+          .Filterable()
+          .Groupable()
+          .DetailTemplate(@<text>
+            <div>ProductID: @item.IdCustomer</div>
+            <div>ProductName: @item.Location</div>
+            <div>UnitsInStock: @item.Name</div>
+        </text>)
+    )*@
+</div>
+
+</body>
+</html>
+<style>
+    #clientsDb {
+        width: 952px;
+        height: 396px;
+        margin: 20px auto 0;
+        padding: 51px 4px 0 4px;
+        background: url('@Url.Content("~/content/web/grid/clientsDb.png")') no-repeat 0 0;
+    }
+</style>
